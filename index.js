@@ -31,7 +31,7 @@ const collatz = (n = rando()) => {
     n = isEven(n) ? halve(n) : multiplyByThreeAndAddOne(n);
   }
 
-  return path;
+  return { n, path };
 };
 
 let result;

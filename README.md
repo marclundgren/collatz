@@ -4,18 +4,24 @@ Collatz Conjecture: Take a number, any number. If itâ€™s even, halve it. If itâ€
 
 ## Test this conjecture in JavaScript
 ```js
+const { abs, round, random, pow }  = Math;
+
 const rando = (offset = 100) =>
-  Math.round(Math.random() * Math.pow(2, Math.round(Math.random() * offset)));
+  round(random() * pow(2, round(random() * offset)));
+const isEven = n => n % 2 === 0;
+const isOdd = n => abs(n % 2) == 1;
+const halve = n => n / 2;
+const multiplyByThreeAndAddOne = n => n * 3 + 1;
   
 const collatz = (n = rando()) => {
   let path = [];
 
-  while (n !== ONE || path.length >= MAX_INDEX) {
+  while (n !== 1 || path.length >= Number.MAX_SAFE_INTEGER) {
     path.push(n);
     n = isEven(n) ? halve(n) : multiplyByThreeAndAddOne(n);
   }
 
-  return path;
+  return { n, path };
 };
 
 console.log(collatz());

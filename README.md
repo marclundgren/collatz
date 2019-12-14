@@ -1,4 +1,5 @@
-# Conjecture Conjecture test
+# Colletz Conjecture function
+
 Collatz Conjecture: Take a number, any number. If it’s even, halve it. If it’s odd, multiply by 3 and add 1. Repeat. Do all starting numbers lead to 1?
 
 
